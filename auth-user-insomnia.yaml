@@ -1,0 +1,107 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Auth
+meta:
+  id: wrk_45b79645b95446cfbb558b6cc9b030d0
+  created: 1792785133211
+  modified: 1792785133211
+  description: ""
+collection:
+  - name: Sessions
+    meta:
+      id: fld_4aa0789d921743f3b7687d3b17a6e998
+      created: 1792785150372
+      modified: 1793315227799
+      sortKey: -1792785150372
+      description: ""
+    children:
+      - url: http://localhost:3333/sessions
+        name: Create
+        meta:
+          id: req_3e7e7b3ff388440d8693541aee02bbb4
+          created: 1792785153078
+          modified: 1793315337488
+          isPrivate: false
+          description: ""
+          sortKey: -1792785153078
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"username": "victor",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Products
+    meta:
+      id: fld_d63df887b09343878decafd25f2e3f98
+      created: 1792801913410
+      modified: 1793360587739
+      sortKey: -1792801913410
+      description: ""
+    children:
+      - url: http://localhost:3333/products
+        name: Index
+        meta:
+          id: req_4c8c87794b034548a3dad062a979555d
+          created: 1792801920195
+          modified: 1792802058383
+          isPrivate: false
+          description: ""
+          sortKey: -1792801920195
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3333/products
+        name: Create
+        meta:
+          id: req_896fe7ec2d034a678b223ae153e98f72
+          created: 1792802088642
+          modified: 1793360511107
+          isPrivate: false
+          description: ""
+          sortKey: -1792793536636.5
+        method: POST
+        authentication:
+          type: bearer
+          disabled: false
+          token: "{% response 'body', 'req_3e7e7b3ff388440d8693541aee02bbb4',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_e952d21339085b5385a429447eebaa2af4a94ac9
+    created: 1792785133260
+    modified: 1792785133260
+environments:
+  name: Base Environment
+  meta:
+    id: env_e952d21339085b5385a429447eebaa2af4a94ac9
+    created: 1792785133217
+    modified: 1792785133217
+    isPrivate: false
